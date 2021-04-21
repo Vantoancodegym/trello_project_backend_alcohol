@@ -7,17 +7,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("")
+@CrossOrigin("*")
 public class TrelloController {
     @Autowired
     private IListService listService;
     @PostMapping("createList")
     public ResponseEntity<?> createList(@RequestBody List list){
+        listService.createList(list);
         return new  ResponseEntity<>(new ResultResponse("Create obj List success"), HttpStatus.OK);
     }
 }

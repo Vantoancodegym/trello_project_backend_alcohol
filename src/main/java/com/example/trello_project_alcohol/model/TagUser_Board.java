@@ -1,7 +1,5 @@
 package com.example.trello_project_alcohol.model;
 
-import org.springframework.security.core.userdetails.User;
-
 import javax.persistence.*;
 import java.util.List;
 
