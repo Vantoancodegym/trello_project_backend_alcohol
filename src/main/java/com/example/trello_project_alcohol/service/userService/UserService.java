@@ -41,7 +41,7 @@ public class UserService implements IAppUserService {
 
     @Override
     public Optional<AppUser> findByUsername(String username) {
-        return appUserRepo.findAppUserByUsername(username);
+        return appUserRepo.findAppUserByUserName(username);
     }
 
     @Override
