@@ -3,16 +3,16 @@ package com.example.trello_project_alcohol.model;
 import javax.persistence.*;
 
 @Entity
-public class Card_Labels {
+public class Card_tagUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne
     private Card card;
     @OneToOne
-    private Labels labels;
+    private AppUser appUser;
 
-    public Card_Labels() {
+    public Card_tagUser() {
     }
 
     public Long getId() {
@@ -31,11 +31,11 @@ public class Card_Labels {
         this.card = card;
     }
 
-    public Labels getLabels() {
-        return labels;
+    public AppUser getAppUser() {
+        return appUser;
     }
 
-    public void setLabels(Labels labels) {
-        this.labels = labels;
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
     }
 }
