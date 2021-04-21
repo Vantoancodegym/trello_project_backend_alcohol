@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 @Entity
 public class AppUser {
@@ -21,8 +22,8 @@ public class AppUser {
     @Email
     @NotBlank
     private String email;
-    @OneToOne
-    private AppRole appRole;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<AppRole> appRoles;
 
     public AppUser() {
     }
@@ -75,12 +76,12 @@ public class AppUser {
         this.email = email;
     }
 
-    public AppRole getAppRole() {
-        return appRole;
+    public Set<AppRole> getAppRoles() {
+        return appRoles;
     }
 
-    public void setAppRole(AppRole appRole) {
-        this.appRole = appRole;
+    public void setAppRoles(Set<AppRole> appRoles) {
+        this.appRoles = appRoles;
     }
 }
 
