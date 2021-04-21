@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class BroadService implements  IBroadService{
+public class BoardService implements IBoardService {
     @Autowired
     private BoardRepo boardRepo;
 
@@ -24,7 +24,7 @@ public class BroadService implements  IBroadService{
 
     @Override
     public Board save(Board board) {
-        return null;
+        return boardRepo.save(board);
     }
 
     @Override

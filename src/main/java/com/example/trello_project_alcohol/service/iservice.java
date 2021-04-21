@@ -5,6 +5,6 @@ import java.util.List;
 public interface iservice <T> {
     List<T> findAll();
     T findById (Long id);
-    T save(  T t);
+    T save( T t);
     void delete( Long id);
 }
