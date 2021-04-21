@@ -1,4 +1,10 @@
 package com.example.trello_project_alcohol.service;
 
-public interface iservice {
+import java.util.List;
+
+public interface iservice <T> {
+    List<T> findAll();
+    T findById (Long id);
+    T save(  T t);
+    void delete( Long id);
 }
