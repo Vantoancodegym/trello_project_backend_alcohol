@@ -32,6 +32,10 @@ public class CardController {
         cardService.save(card);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<Card> findCardById(@PathVariable Long id){
+        return new ResponseEntity<>(cardService.findById(id), HttpStatus.OK);
+    }
 }
 
 
