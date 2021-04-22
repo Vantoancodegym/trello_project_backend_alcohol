@@ -28,6 +28,7 @@ public class TrelloController {
     }
     @PutMapping("editPositionList")
     public ResponseEntity<?> changePositionList(@RequestBody ArrayList<List> lists){
+        listService.editPositionList(lists);
         return new ResponseEntity(new ResultResponse("Change position ok"),HttpStatus.OK);
     }
 }
