@@ -17,13 +17,13 @@ import java.util.ArrayList;
 public class TrelloController {
     @Autowired
     private IListService listService;
-    @GetMapping("")
-    public ResponseEntity<?> findAll(){
-        return new ResponseEntity<>(listService.findAllList(),HttpStatus.OK);
+    @GetMapping("/board/{id}")
+    public ResponseEntity<?> findListByBoardId(@PathVariable Long id){
+        return new ResponseEntity<>(listService.findListByBoardId(id),HttpStatus.OK);
     }
     @PostMapping("createList")
     public ResponseEntity<?> createList(@RequestBody List list){
-        listService.createList(list);
+        listService.save(list);
         return new  ResponseEntity<>(new ResultResponse("Create obj List success"), HttpStatus.OK);
     }
     @PutMapping("editPositionList")
