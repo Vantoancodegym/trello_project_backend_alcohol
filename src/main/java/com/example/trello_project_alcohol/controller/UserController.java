@@ -11,12 +11,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
-@RequestMapping("")
+@RequestMapping("list")
 public class UserController {
     @Autowired
     private IAppUserService iAppUserService;
 
+    @GetMapping("")
+    public ResponseEntity<List<AppUser>> showAll (){
+        return new ResponseEntity<>(iAppUserService.findAll(),HttpStatus.OK);
+    }
 
     @PostMapping("/create")
     public ResponseEntity<AppUser> createUser(@RequestBody AppUser appUser) {
