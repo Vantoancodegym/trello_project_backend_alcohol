@@ -6,24 +6,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 @Service
-public class ListService implements IListService{
+public class ListService implements IListService {
     @Autowired
     private ListRepo listRepo;
 
     @Override
-    public Collection<List> findAllList() {
+    public java.util.List<List> findAll() {
         return listRepo.findAll();
     }
 
     @Override
-    public List createList(List list) {
-        Collection<List> lists = findAllList();
-        int position = lists.size()+1;
-        list.setPosition(position);
+    public List findById(Long id) {
+        return listRepo.findById(id).get();
+    }
+
+    @Override
+    public List save(List list) {
         return listRepo.save(list);
+    }
+
+    @Override
+    public void delete(Long id) {
+        listRepo.deleteById(id);
+
     }
 
     @Override
@@ -32,4 +39,16 @@ public class ListService implements IListService{
             listRepo.save(lists.get(i));
         }
     }
+
+    @Override
+    public java.util.List<List> findListByBoardId(Long id) {
+        return listRepo.findListByBoard_Id(id);
+    }
+
+    @Override
+    public List editTitleList(List list, Long id) {
+        list.setId(id);
+        return listRepo.save(list);
+    }
+
 }

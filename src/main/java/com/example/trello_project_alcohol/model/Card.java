@@ -9,6 +9,7 @@ public class Card {
     private Long id;
     private String title;
     private String content;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int position;
     @ManyToOne
     private List list;

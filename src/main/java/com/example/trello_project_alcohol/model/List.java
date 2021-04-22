@@ -10,6 +10,7 @@ public class List {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int position;
     @ManyToOne
     private Board board;
