@@ -7,10 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 @Controller
 @RequestMapping("")
@@ -18,9 +17,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TrelloController {
     @Autowired
     private IListService listService;
+    @GetMapping("")
+    public ResponseEntity<?> findAll(){
+        return new ResponseEntity<>(listService.findAllList(),HttpStatus.OK);
+    }
     @PostMapping("createList")
     public ResponseEntity<?> createList(@RequestBody List list){
         listService.createList(list);
         return new  ResponseEntity<>(new ResultResponse("Create obj List success"), HttpStatus.OK);
+    }
+    @PutMapping("editPositionList")
+    public ResponseEntity<?> changePositionList(@RequestBody ArrayList<List> lists){
+        listService.editPositionList(lists);
+        return new ResponseEntity(new ResultResponse("Change position ok"),HttpStatus.OK);
     }
 }
