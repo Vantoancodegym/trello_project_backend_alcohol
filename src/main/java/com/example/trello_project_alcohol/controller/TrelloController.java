@@ -26,6 +26,4 @@ public class TrelloController {
         listService.createList(list);
         return new  ResponseEntity<>(new ResultResponse("Create obj List success"), HttpStatus.OK);
     }
-
-
 }
