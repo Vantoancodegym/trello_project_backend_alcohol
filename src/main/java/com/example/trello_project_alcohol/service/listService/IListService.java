@@ -9,4 +9,6 @@ public interface IListService {
     Collection<List> findAllList();
     List createList(List list);
     void editPositionList(ArrayList<List> lists);
+    List editTitleList(Long id, String title);
+    List findListById(Long id);
 }

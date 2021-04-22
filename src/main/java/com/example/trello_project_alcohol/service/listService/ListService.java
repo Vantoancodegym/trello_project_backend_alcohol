@@ -32,4 +32,16 @@ public class ListService implements IListService{
             listRepo.save(lists.get(i));
         }
     }
+
+    @Override
+    public List editTitleList(Long id, String title) {
+        List list = findListById(id);
+        list.setTitle(title);
+        return listRepo.save(list);
+    }
+
+    @Override
+    public List findListById(Long id) {
+        return listRepo.findById(id).get();
+    }
 }
