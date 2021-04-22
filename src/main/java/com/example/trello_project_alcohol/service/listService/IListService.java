@@ -9,4 +9,5 @@ import java.util.Collection;
 public interface IListService extends IService<List> {
     void editPositionList(ArrayList<List> lists);
     java.util.List<List> findListByBoardId(Long id);
+    List editTitleList(List list, Long id);
 }
