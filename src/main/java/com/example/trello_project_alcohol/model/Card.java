@@ -9,6 +9,8 @@ public class Card {
     private Long id;
     private String title;
     private String content;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int position;
     @ManyToOne
     private List list;
 
@@ -45,5 +47,13 @@ public class Card {
 
     public void setList(List list) {
         this.list = list;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 }

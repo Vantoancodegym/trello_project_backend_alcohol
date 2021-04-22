@@ -10,7 +10,8 @@ public class Board {
     private Long id;
     private String name;
     @ManyToOne
-    private AppUser appUserCreate;
+
+    private AppUser appUser;
 
     public Board() {
     }
@@ -31,11 +32,11 @@ public class Board {
         this.name = name;
     }
 
-    public AppUser getAppUserCreate() {
-        return appUserCreate;
+    public AppUser getAppUser() {
+        return appUser;
     }
 
-    public void setAppUserCreate(AppUser appUserCreate) {
-        this.appUserCreate = appUserCreate;
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
     }
 }

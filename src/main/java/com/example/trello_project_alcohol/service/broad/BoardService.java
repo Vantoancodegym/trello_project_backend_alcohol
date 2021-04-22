@@ -29,6 +29,5 @@ public class BoardService implements IBoardService {
 
     @Override
     public void delete(Long id) {
-
     }
 }
