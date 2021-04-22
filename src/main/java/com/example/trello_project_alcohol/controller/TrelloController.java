@@ -31,4 +31,9 @@ public class TrelloController {
         listService.editPositionList(lists);
         return new ResponseEntity(new ResultResponse("Change position ok"),HttpStatus.OK);
     }
+    @PutMapping("editTitleList/{id}")
+    public ResponseEntity<List> changeTitleList(@RequestBody List list, @PathVariable Long id){
+        list.setId(id);
+        return new ResponseEntity<>(listService.editTitleList(list),HttpStatus.OK);
+    }
 }

@@ -29,7 +29,6 @@ public class CardService implements ICardService{
     @Override
     public void delete(Long id) {
         cardRepo.deleteById(id);
-
     }
 
     @Override
