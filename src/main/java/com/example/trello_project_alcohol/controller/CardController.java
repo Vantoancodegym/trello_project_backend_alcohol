@@ -19,7 +19,7 @@ public class CardController {
     public ResponseEntity<List<Card>> findCardsByListId(@PathVariable Long id){
         return new ResponseEntity<>(cardService.findCardsByListId(id), HttpStatus.OK);
     }
-    @PutMapping("changePositon")
+    @PutMapping("changePosition")
     public ResponseEntity<?> changePositionCard(@RequestBody List<Card> cards){
         for (Card card:cards) {
             cardService.save(card);
