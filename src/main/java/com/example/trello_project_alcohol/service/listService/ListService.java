@@ -8,10 +8,9 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 @Service
-public class ListService implements IListService {
+public class ListService implements IListService{
     @Autowired
     private ListRepo listRepo;
-
     @Override
     public java.util.List<List> findAll() {
         return listRepo.findAll();
@@ -44,7 +43,6 @@ public class ListService implements IListService {
     public java.util.List<List> findListByBoardId(Long id) {
         return listRepo.findListByBoard_Id(id);
     }
-
     @Override
     public List editTitleList(List list, Long id) {
         list.setId(id);
@@ -52,3 +50,4 @@ public class ListService implements IListService {
     }
 
 }
+
