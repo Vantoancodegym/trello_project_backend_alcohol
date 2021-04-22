@@ -24,6 +24,7 @@ public class AppUser {
     @OneToOne
     private AppRole appRole;
 
+
     public AppUser() {
     }
 

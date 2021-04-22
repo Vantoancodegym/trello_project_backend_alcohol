@@ -9,8 +9,8 @@ public class Board {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToMany
-    private List<AppUser> appUser;
+    @ManyToOne
+    private AppUser appUserCreate;
 
     public Board() {
     }
@@ -31,11 +31,11 @@ public class Board {
         this.name = name;
     }
 
-    public List<AppUser> getAppUser() {
-        return appUser;
+    public AppUser getAppUserCreate() {
+        return appUserCreate;
     }
 
-    public void setAppUser(List<AppUser> appUser) {
-        this.appUser = appUser;
+    public void setAppUserCreate(AppUser appUserCreate) {
+        this.appUserCreate = appUserCreate;
     }
 }
