@@ -3,9 +3,11 @@ package com.example.trello_project_alcohol.service.cardService;
 import com.example.trello_project_alcohol.model.Card;
 import com.example.trello_project_alcohol.repo.CardRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CardService implements ICardService{
     @Autowired
     private CardRepo cardRepo;
@@ -32,6 +34,6 @@ public class CardService implements ICardService{
 
     @Override
     public List<Card> findCardsByListId(Long id) {
-        return cardRepo.findCardsByList_IdOrOrderByPosition(id);
+        return cardRepo.findCardsByList_IdOrderByPosition(id);
     }
 }

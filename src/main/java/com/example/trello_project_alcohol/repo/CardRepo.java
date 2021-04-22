@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface CardRepo extends JpaRepository<Card,Long> {
-    List<Card> findCardsByList_IdOrOrderByPosition(Long id);
+    List<Card> findCardsByList_IdOrderByPosition(Long id);
 
 }
