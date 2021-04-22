@@ -44,6 +44,6 @@ public class ListService implements IListService{
 
     @Override
     public java.util.List<List> findListByBoardId(Long id) {
-        return listRepo.findListByBoard_Id(id);
+        return listRepo.findListByBoard_IdOrderByPosition(id);
     }
 }
