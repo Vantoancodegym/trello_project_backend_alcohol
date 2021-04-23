@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface BoardRepo extends JpaRepository<Board,Long> {
-    @Query(value = "select b.id as id, b.name as name from board as b join app_user au on au.id = b.app_user_id where app_user_id =?", nativeQuery = true)
-    List<Board> findAllByNameByTagAppUserBoard(Long app_user_id);
+    List<Board> findBoardByAppUser_Id (Long app_user_id);
+
 }

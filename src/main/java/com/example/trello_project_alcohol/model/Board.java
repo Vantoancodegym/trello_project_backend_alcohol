@@ -16,6 +16,11 @@ public class Board {
     public Board() {
     }
 
+    public Board(String name, AppUser appUser) {
+        this.name = name;
+        this.appUser = appUser;
+    }
+
     public Long getId() {
         return id;
     }
