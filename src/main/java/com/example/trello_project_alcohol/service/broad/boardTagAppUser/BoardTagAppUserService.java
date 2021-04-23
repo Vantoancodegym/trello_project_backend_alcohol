@@ -1,4 +1,4 @@
-package com.example.trello_project_alcohol.service.boardTagAppUser;
+package com.example.trello_project_alcohol.service.broad.boardTagAppUser;
 
 import com.example.trello_project_alcohol.model.TagUser_Board;
 import com.example.trello_project_alcohol.repo.TagUser_Board_Repo;
@@ -29,6 +29,6 @@ public class BoardTagAppUserService implements IBoardTagAppUserService{
 
     @Override
     public void delete(Long id) {
-
     }
+    // Test duyệt board
 }

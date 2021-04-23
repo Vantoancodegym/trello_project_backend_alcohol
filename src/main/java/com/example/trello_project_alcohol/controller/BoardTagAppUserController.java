@@ -1,7 +1,7 @@
 package com.example.trello_project_alcohol.controller;
 
 import com.example.trello_project_alcohol.model.TagUser_Board;
-import com.example.trello_project_alcohol.service.boardTagAppUser.BoardTagAppUserService;
+import com.example.trello_project_alcohol.service.broad.boardTagAppUser.BoardTagAppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
