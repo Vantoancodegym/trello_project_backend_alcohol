@@ -23,6 +23,8 @@ public class TrelloController {
     }
     @PostMapping("createList")
     public ResponseEntity<?> createList(@RequestBody List list){
+        int position = listService.findListByBoardId(list.getBoard().getId()).size();
+        list.setPosition(position);
         listService.save(list);
         return new  ResponseEntity<>(new ResultResponse("Create obj List success"), HttpStatus.OK);
     }
