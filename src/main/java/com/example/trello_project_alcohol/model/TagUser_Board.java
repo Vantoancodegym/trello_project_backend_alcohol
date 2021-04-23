@@ -1,7 +1,6 @@
 package com.example.trello_project_alcohol.model;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class TagUser_Board {
