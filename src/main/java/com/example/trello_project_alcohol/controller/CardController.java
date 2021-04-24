@@ -36,6 +36,12 @@ public class CardController {
     public ResponseEntity<Card> findCardById(@PathVariable Long id){
         return new ResponseEntity<>(cardService.findById(id), HttpStatus.OK);
     }
+    @PostMapping("create")
+    public ResponseEntity<?> createCard(@RequestBody Card card){
+        int position = cardService.findCardsByListId(card.getList().getId()).size();
+        card.setPosition(position);
+        return new ResponseEntity<>(cardService.save(card), HttpStatus.OK);
+    }
 }
 
 
