@@ -24,4 +24,5 @@ public class BoardController {
     public ResponseEntity<Board> create(@RequestBody Board board){
         return new ResponseEntity<>(boardService.save(board), HttpStatus.OK);
     }
+    
 }
