@@ -28,4 +28,8 @@ public class BoardController {
     public ResponseEntity<List<Board>> showAllNameBoardByTagUser(@PathVariable Long id){
         return new ResponseEntity<>(boardService.findAllNameBoardAppUser(id),HttpStatus.OK);
     }
+    @GetMapping("findBoardById/{id}")
+    public ResponseEntity<Board> findBoardById(@PathVariable Long id){
+        return new ResponseEntity<>(boardService.findById(id),HttpStatus.OK);
+    }
 }
