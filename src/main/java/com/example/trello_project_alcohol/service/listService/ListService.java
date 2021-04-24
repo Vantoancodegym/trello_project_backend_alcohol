@@ -6,12 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 @Service
 public class ListService implements IListService{
-
-
     @Autowired
     private ListRepo listRepo;
     @Override
@@ -46,4 +43,11 @@ public class ListService implements IListService{
     public java.util.List<List> findListByBoardId(Long id) {
         return listRepo.findListByBoard_IdOrderByPosition(id);
     }
+    @Override
+    public List editTitleList(List list, Long id) {
+        list.setId(id);
+        return listRepo.save(list);
+    }
+
 }
+

@@ -1,24 +1,25 @@
 package com.example.trello_project_alcohol.model;
 
+import org.springframework.stereotype.Service;
+
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
-public class Board {
+public class BoardTagAppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
+    Long id;
     @ManyToOne
-
     private AppUser appUser;
+    @ManyToOne
+    private Board board;
 
-    public Board() {
+    public Board getBoard() {
+        return board;
     }
 
-    public Board(String name, AppUser appUser) {
-        this.name = name;
-        this.appUser = appUser;
+    public void setBoard(Board board) {
+        this.board = board;
     }
 
     public Long getId() {
@@ -29,14 +30,6 @@ public class Board {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public AppUser getAppUser() {
         return appUser;
     }
@@ -44,4 +37,5 @@ public class Board {
     public void setAppUser(AppUser appUser) {
         this.appUser = appUser;
     }
+
 }

@@ -1,6 +1,8 @@
-package com.example.trello_project_alcohol.service.boardTagAppUser;
+package com.example.trello_project_alcohol.service.broad.boardTagAppUser;
 
+import com.example.trello_project_alcohol.model.Board;
 import com.example.trello_project_alcohol.model.TagUser_Board;
+import com.example.trello_project_alcohol.model.virtual.BoardByTagAppUser;
 import com.example.trello_project_alcohol.repo.TagUser_Board_Repo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +31,9 @@ public class BoardTagAppUserService implements IBoardTagAppUserService{
 
     @Override
     public void delete(Long id) {
-
+    }
+    @Override
+    public List<BoardByTagAppUser> findAllNameByTagUserBoard(Long app_user_id) {
+        return tagUserBoardRepo.showAllNameByTagUserBoard(app_user_id);
     }
 }
