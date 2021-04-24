@@ -26,4 +26,16 @@ public class CardController {
         }
         return new ResponseEntity<>(HttpStatus.OK);
     }
+    @PutMapping("edit/{id}")
+    public ResponseEntity<?> editCard(@PathVariable Long id, @RequestBody Card card){
+        card.setId(id);
+        cardService.save(card);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<Card> findCardById(@PathVariable Long id){
+        return new ResponseEntity<>(cardService.findById(id), HttpStatus.OK);
+    }
 }
+
+

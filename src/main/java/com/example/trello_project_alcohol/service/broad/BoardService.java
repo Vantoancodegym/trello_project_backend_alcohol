@@ -29,6 +29,11 @@ public class BoardService implements IBoardService {
 
     @Override
     public void delete(Long id) {
+    }
 
+    @Override
+    public List<Board> findAllNameBoardAppUser(Long app_user_id) {
+        return boardRepo.findBoardByAppUser_Id(app_user_id);
     }
 }
+

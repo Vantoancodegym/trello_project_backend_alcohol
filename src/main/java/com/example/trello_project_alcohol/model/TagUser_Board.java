@@ -1,17 +1,16 @@
 package com.example.trello_project_alcohol.model;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class TagUser_Board {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
+    @ManyToOne
     private Board board;
-    @OneToMany
-    private List<AppUser> appUser;
+    @ManyToOne
+    private AppUser appUser;
 
     public TagUser_Board() {
     }
@@ -32,11 +31,11 @@ public class TagUser_Board {
         this.board = board;
     }
 
-    public List<AppUser> getAppUser() {
+    public AppUser getAppUser() {
         return appUser;
     }
 
-    public void setAppUser(List<AppUser> appUser) {
+    public void setAppUser(AppUser appUser) {
         this.appUser = appUser;
     }
 }
