@@ -19,4 +19,8 @@ public class MediaFileController {
     public ResponseEntity<List<MediaFile>> findMediaFileCard(@PathVariable Long id){
         return new ResponseEntity<>(mediaFileService.findMediaFileByCard(id), HttpStatus.OK);
     }
+    @PostMapping("create")
+    public ResponseEntity<MediaFile> createMediaFile(@RequestBody MediaFile mediaFile){
+        return new ResponseEntity<>(mediaFileService.save(mediaFile),HttpStatus.OK);
+    }
 }
