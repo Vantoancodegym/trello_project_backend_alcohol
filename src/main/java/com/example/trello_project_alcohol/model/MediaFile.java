@@ -29,4 +29,12 @@ public class MediaFile {
     public void setLink(String link) {
         this.link = link;
     }
+
+    public Card getCard() {
+        return card;
+    }
+
+    public void setCard(Card card) {
+        this.card = card;
+    }
 }
