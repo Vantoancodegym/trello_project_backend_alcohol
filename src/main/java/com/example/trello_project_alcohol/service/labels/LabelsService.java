@@ -1,6 +1,8 @@
 package com.example.trello_project_alcohol.service.labels;
 
+import com.example.trello_project_alcohol.model.Card_Labels;
 import com.example.trello_project_alcohol.model.Labels;
+import com.example.trello_project_alcohol.repo.Card_labels_repo;
 import com.example.trello_project_alcohol.repo.LabelsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,8 @@ import java.util.List;
 public class LabelsService implements ILabelsService{
     @Autowired
     private LabelsRepo labelsRepo;
+    @Autowired
+    private Card_labels_repo card_labels_repo;
 
     @Override
     public List<Labels> findAll() {
@@ -53,5 +57,10 @@ public class LabelsService implements ILabelsService{
            if (l.getId()==labels.getId()) return true;
         }
         return false;
+    }
+
+    @Override
+    public void addNewLabelToCard(Card_Labels card_labels) {
+        card_labels_repo.save(card_labels);
     }
 }
