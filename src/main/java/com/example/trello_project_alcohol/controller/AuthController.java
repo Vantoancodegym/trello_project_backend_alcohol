@@ -43,6 +43,7 @@ public class AuthController {
     @GetMapping("/logOut")
     public ResponseEntity<?> admin() {
         UserService.currentUser = null;
+        System.out.println("logout");
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
