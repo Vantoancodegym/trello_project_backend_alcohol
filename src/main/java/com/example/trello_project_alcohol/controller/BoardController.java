@@ -17,19 +17,28 @@ public class BoardController {
     private BoardService boardService;
 
     @GetMapping("")
-    public ResponseEntity <List<Board>> showAll(){
+    public ResponseEntity<List<Board>> showAll() {
         return new ResponseEntity<>(boardService.findAll(), HttpStatus.OK);
     }
+
     @PostMapping("create")
-    public ResponseEntity<Board> create(@RequestBody Board board){
+    public ResponseEntity<Board> create(@RequestBody Board board) {
         return new ResponseEntity<>(boardService.save(board), HttpStatus.OK);
     }
-    @GetMapping("list/{id}")
-    public ResponseEntity<List<Board>> showAllNameBoardByTagUser(@PathVariable Long id){
-        return new ResponseEntity<>(boardService.findAllNameBoardAppUser(id),HttpStatus.OK);
+
+    @GetMapping("listAppBoard/{id}")
+    public ResponseEntity<List<Board>> showAllNameBoardByTagUser(@PathVariable Long id) {
+        return new ResponseEntity<>(boardService.findAllNameBoardAppUser(id), HttpStatus.OK);
     }
+
+    @GetMapping("listBoardTagUser/{id}")
+    public ResponseEntity<List<Board>> showAllBoardTagUser(@PathVariable Long id) {
+        return new ResponseEntity<>(boardService.findAllNameByTagUserBoard(id), HttpStatus.OK);
+    }
+
     @GetMapping("findBoardById/{id}")
-    public ResponseEntity<Board> findBoardById(@PathVariable Long id){
-        return new ResponseEntity<>(boardService.findById(id),HttpStatus.OK);
+    public ResponseEntity<Board> findBoardById(@PathVariable Long id) {
+        return new ResponseEntity<>(boardService.findById(id), HttpStatus.OK);
+
     }
 }

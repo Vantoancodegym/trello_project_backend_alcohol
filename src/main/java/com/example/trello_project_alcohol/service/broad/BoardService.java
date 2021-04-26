@@ -19,7 +19,7 @@ public class BoardService implements IBoardService {
 
     @Override
     public Board findById(Long id) {
-        return null;
+        return boardRepo.findById(id).get();
     }
 
     @Override
@@ -29,6 +29,12 @@ public class BoardService implements IBoardService {
 
     @Override
     public void delete(Long id) {
+    }
+
+
+    @Override
+    public List<Board> findAllNameByTagUserBoard(Long tag_user_id) {
+        return boardRepo.findBoardByNameTagUser(tag_user_id);
     }
 
     @Override

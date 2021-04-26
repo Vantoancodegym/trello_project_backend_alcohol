@@ -27,9 +27,14 @@ public class UserController {
         return new ResponseEntity<>(iAppUserService.save(appUser), HttpStatus.OK);
     }
 
-    @PostMapping("/edit/{id}")
+    @PutMapping("/edit/{id}")
     public ResponseEntity<AppUser> editPass(@PathVariable Long id, @RequestBody AppUser appUser) {
         appUser.setId(id);
         return new ResponseEntity<>(iAppUserService.save(appUser), HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<AppUser> findAppUserById (@PathVariable Long id){
+        return new ResponseEntity<>(iAppUserService.findById(id),HttpStatus.OK);
     }
 }
