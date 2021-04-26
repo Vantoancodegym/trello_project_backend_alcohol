@@ -24,8 +24,12 @@ public class BoardController {
     public ResponseEntity<Board> create(@RequestBody Board board){
         return new ResponseEntity<>(boardService.save(board), HttpStatus.OK);
     }
-    @GetMapping("list/{id}")
+    @GetMapping("listAppBoard/{id}")
     public ResponseEntity<List<Board>> showAllNameBoardByTagUser(@PathVariable Long id){
+        return new ResponseEntity<>(boardService.findAllNameBoardAppUser(id),HttpStatus.OK);
+    }
+    @GetMapping("listBoardTagUser/{id}")
+    public ResponseEntity<List<Board>> showAllBoardTagUser(@PathVariable Long id){
         return new ResponseEntity<>(boardService.findAllNameBoardAppUser(id),HttpStatus.OK);
     }
 }

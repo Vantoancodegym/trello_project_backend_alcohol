@@ -1,6 +1,5 @@
 package com.example.trello_project_alcohol.service.broad;
 import com.example.trello_project_alcohol.model.Board;
-import com.example.trello_project_alcohol.model.virtual.BoardByTagAppUser;
 import com.example.trello_project_alcohol.service.IService;
 
 import java.util.List;
