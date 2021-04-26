@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface IBoardTagAppUserService extends IService<TagUser_Board> {
-    List<BoardByTagAppUser> findAllNameByTagUserBoard(Long app_user_id);
+
 
 
 }

@@ -32,6 +32,11 @@ public class BoardService implements IBoardService {
     }
 
     @Override
+    public List<Board> findAllNameByTagUserBoard(Long app_user_id) {
+        return boardRepo.findBoardByNameTagUser(app_user_id);
+    }
+
+    @Override
     public List<Board> findAllNameBoardAppUser(Long app_user_id) {
         return boardRepo.findBoardByAppUser_Id(app_user_id);
     }

@@ -32,8 +32,4 @@ public class BoardTagAppUserService implements IBoardTagAppUserService{
     @Override
     public void delete(Long id) {
     }
-    @Override
-    public List<BoardByTagAppUser> findAllNameByTagUserBoard(Long app_user_id) {
-        return tagUserBoardRepo.showAllNameByTagUserBoard(app_user_id);
-    }
 }
