@@ -30,6 +30,6 @@ public class BoardController {
     }
     @GetMapping("listBoardTagUser/{id}")
     public ResponseEntity<List<Board>> showAllBoardTagUser(@PathVariable Long id){
-        return new ResponseEntity<>(boardService.findAllNameBoardAppUser(id),HttpStatus.OK);
+        return new ResponseEntity<>(boardService.findAllNameByTagUserBoard(id),HttpStatus.OK);
     }
 }

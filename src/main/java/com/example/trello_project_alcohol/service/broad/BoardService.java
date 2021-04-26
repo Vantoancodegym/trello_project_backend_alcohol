@@ -31,9 +31,10 @@ public class BoardService implements IBoardService {
     public void delete(Long id) {
     }
 
+
     @Override
-    public List<Board> findAllNameByTagUserBoard(Long app_user_id) {
-        return boardRepo.findBoardByNameTagUser(app_user_id);
+    public List<Board> findAllNameByTagUserBoard(Long tag_user_id) {
+        return boardRepo.findBoardByNameTagUser(tag_user_id);
     }
 
     @Override
