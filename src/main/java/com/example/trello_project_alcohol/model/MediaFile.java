@@ -1,9 +1,6 @@
 package com.example.trello_project_alcohol.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class MediaFile {
@@ -11,6 +8,8 @@ public class MediaFile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
     private String link;
+    @ManyToOne
+    private Card card;
 
     public MediaFile() {
     }
@@ -29,5 +28,13 @@ public class MediaFile {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public Card getCard() {
+        return card;
+    }
+
+    public void setCard(Card card) {
+        this.card = card;
     }
 }

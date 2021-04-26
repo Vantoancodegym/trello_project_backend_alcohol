@@ -20,6 +20,7 @@ public class BoardTagAppUserController {
     public ResponseEntity <List<TagUser_Board>> showAll(){
         return new ResponseEntity<>(boardTagAppUserService.findAll(),HttpStatus.OK);
     }
+
      @PostMapping("create")
     public ResponseEntity<TagUser_Board> create(@RequestBody TagUser_Board tagUserBoard){
          return new ResponseEntity<>(boardTagAppUserService.save(tagUserBoard), HttpStatus.OK);

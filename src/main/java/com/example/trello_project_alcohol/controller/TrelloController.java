@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-
 @Controller
 @RequestMapping("")
 @CrossOrigin("*")
@@ -33,8 +32,12 @@ public class TrelloController {
         listService.editPositionList(lists);
         return new ResponseEntity(new ResultResponse("Change position ok"),HttpStatus.OK);
     }
+    @GetMapping("findList/{id}")
+    ResponseEntity<List> findListById(@PathVariable Long id) {
+        return new ResponseEntity<>(listService.findById(id), HttpStatus.OK);
+    }
     @PutMapping("editTitleList/{id}")
     public ResponseEntity<?> changeTitleList(@RequestBody List list, @PathVariable Long id){
-        return new ResponseEntity<>(listService.editTitleList(list,id),HttpStatus.OK);
+        return new ResponseEntity<>(listService.editTitleList(list, id),HttpStatus.OK);
     }
 }

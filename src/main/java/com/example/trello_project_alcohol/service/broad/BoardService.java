@@ -19,7 +19,7 @@ public class BoardService implements IBoardService {
 
     @Override
     public Board findById(Long id) {
-        return null;
+        return boardRepo.findById(id).get();
     }
 
     @Override

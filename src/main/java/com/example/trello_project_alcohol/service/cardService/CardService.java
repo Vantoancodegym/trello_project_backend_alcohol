@@ -4,6 +4,8 @@ import com.example.trello_project_alcohol.model.Card;
 import com.example.trello_project_alcohol.repo.CardRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -27,9 +29,9 @@ public class CardService implements ICardService{
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void delete(Long id) {
         cardRepo.deleteById(id);
-
     }
 
     @Override
