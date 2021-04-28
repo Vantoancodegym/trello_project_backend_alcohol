@@ -19,7 +19,7 @@ public class BoardTagAppUserService implements IBoardTagAppUserService{
 
     @Override
     public TagUser_Board findById(Long id) {
-        return null;
+        return tagUserBoardRepo.findById(id).get();
     }
 
     @Override
