@@ -10,14 +10,16 @@ public class JwtResponse {
     private String type = "Bearer";
     private String username;
     private String email;
+    private String avatar;
     private Collection<? extends GrantedAuthority> roles;
 
-    public JwtResponse(String accessToken, Long id, String username, String email, Collection<? extends GrantedAuthority> roles) {
+    public JwtResponse(String accessToken, Long id, String username, String email, Collection<? extends GrantedAuthority> roles, String avatar) {
         this.accessToken = accessToken;
         this.username = username;
         this.roles = roles;
         this.email = email;
         this.id = id;
+        this.avatar = avatar;
     }
 
     public String getEmail() {
@@ -60,6 +62,22 @@ public class JwtResponse {
         return username;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -67,4 +85,5 @@ public class JwtResponse {
     public Collection<? extends GrantedAuthority> getRoles() {
         return roles;
     }
+
 }
