@@ -12,7 +12,7 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/boardAppUser")
+@RequestMapping("/tagUser")
 public class BoardTagAppUserController {
     @Autowired
     private IBoardTagAppUserService boardTagAppUserService;
