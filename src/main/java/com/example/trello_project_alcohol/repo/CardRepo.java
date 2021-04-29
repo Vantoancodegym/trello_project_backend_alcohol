@@ -10,5 +10,5 @@ import java.util.List;
 public interface CardRepo extends JpaRepository<Card,Long> {
     List<Card> findCardsByList_IdOrderByPosition(Long id);
     void deleteByContent(String content);
-    List<Card> findCardsByContentOrTitle();
+    List<Card> findCardsByContentOrTitle(String input);
 }

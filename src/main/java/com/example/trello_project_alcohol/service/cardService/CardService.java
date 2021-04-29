@@ -40,7 +40,7 @@ public class CardService implements ICardService{
     }
 
     @Override
-    public List<Card> findCardsByContent(String input) {
-        return null;
+    public List<Card> findCardsByContentOrTitle(String input) {
+        return cardRepo.findCardsByContentOrTitle(input);
     }
 }

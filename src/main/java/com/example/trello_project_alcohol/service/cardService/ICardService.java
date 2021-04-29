@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface ICardService extends IService<Card> {
     List<Card> findCardsByListId(Long id);
-    List<Card> findCardsByContent(String input);
+    List<Card> findCardsByContentOrTitle(String input);
 }
