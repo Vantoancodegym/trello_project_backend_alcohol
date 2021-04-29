@@ -42,10 +42,15 @@ public class CardController {
         card.setPosition(position);
         return new ResponseEntity<>(cardService.save(card), HttpStatus.OK);
     }
-    @GetMapping("search/Content")
+    @GetMapping("search/content")
     public ResponseEntity<?> searchCard(@RequestParam String input){
         String t = "%" + input +"%";
         return new ResponseEntity<>(cardService.findCardsByContent(t),HttpStatus.OK);
+    }
+    @GetMapping("search/title")
+    public ResponseEntity<?> searchCardByTitle(@RequestParam String input){
+        String t = "%" + input +"%";
+        return new ResponseEntity<>(cardService.findCardsByTitle(t),HttpStatus.OK);
     }
 }
 
