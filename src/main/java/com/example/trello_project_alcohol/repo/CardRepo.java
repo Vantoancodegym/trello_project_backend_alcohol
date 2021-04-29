@@ -11,6 +11,8 @@ import java.util.List;
 public interface CardRepo extends JpaRepository<Card,Long> {
     List<Card> findCardsByList_IdOrderByPosition(Long id);
     void deleteByContent(String content);
+    @Query(nativeQuery = true,value = "select * from card where content like ?")
     List<Card> findCardsByContent(String input);
+    @Query(nativeQuery = true,value = "select * from card where title like ?")
     List<Card> findCardsByTitle(String input);
 }
