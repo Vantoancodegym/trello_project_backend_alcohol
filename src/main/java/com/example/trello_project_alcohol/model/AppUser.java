@@ -5,6 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import java.util.Set;
@@ -14,8 +15,13 @@ public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
+    @NotNull
     @Size(min = 3, max = 30)
     private String userName;
+    @NotBlank
+    @NotNull
+    @Size(min = 6, max = 20)
     private String passWord;
     private String avatar;
     @Transient
@@ -28,6 +34,21 @@ public class AppUser {
 
 
     public AppUser() {
+    }
+
+    public AppUser(Long id, @NotBlank @NotNull @Size(min = 3, max = 30) String userName, @NotBlank @NotNull @Size(min = 6, max = 20) String passWord, String avatar, MultipartFile avatarMul, @Email @NotBlank String email, Set<AppRole> appRoles) {
+        this.id = id;
+        this.userName = userName;
+        this.passWord = passWord;
+        this.avatar = avatar;
+        this.avatarMul = avatarMul;
+        this.email = email;
+        this.appRoles = appRoles;
+    }
+
+    public AppUser(@NotBlank @NotNull @Size(min = 3, max = 30) String userName, @NotBlank @NotNull @Size(min = 6, max = 20) String passWord) {
+        this.userName = userName;
+        this.passWord = passWord;
     }
 
     public Long getId() {
