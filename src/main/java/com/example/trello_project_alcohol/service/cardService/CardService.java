@@ -40,7 +40,12 @@ public class CardService implements ICardService{
     }
 
     @Override
-    public List<Card> findCardsByContentOrTitle(String input) {
-        return cardRepo.findCardsByContentOrTitle(input);
+    public List<Card> findCardsByContent(String input) {
+        return cardRepo.findCardsByContent(input);
+    }
+
+    @Override
+    public List<Card> findCardsByTitle(String input) {
+        return cardRepo.findCardsByTitle(input);
     }
 }
