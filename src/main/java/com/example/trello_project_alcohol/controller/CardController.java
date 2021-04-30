@@ -42,6 +42,8 @@ public class CardController {
         card.setPosition(position);
         return new ResponseEntity<>(cardService.save(card), HttpStatus.OK);
     }
+    @GetMapping("")
+    public ResponseEntity<?> showAll(){
+        return new ResponseEntity<>(cardService.findAllCard(),HttpStatus.OK);
+    }
 }
-
-

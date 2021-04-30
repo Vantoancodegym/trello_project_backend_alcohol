@@ -38,4 +38,9 @@ public class CardService implements ICardService{
     public List<Card> findCardsByListId(Long id) {
         return cardRepo.findCardsByList_IdOrderByPosition(id);
     }
+
+    @Override
+    public List<Card> findAllCard() {
+        return cardRepo.findAllCard();
+    }
 }

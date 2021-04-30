@@ -24,7 +24,7 @@ public class AppUser {
     @NotBlank
     private String email;
     @ManyToMany(fetch = FetchType.EAGER)
-    private Set<AppRole> appRoles;
+    private Set<AppRole> appRole;
 
 
     public AppUser() {
@@ -79,11 +79,11 @@ public class AppUser {
     }
 
     public Set<AppRole> getAppRoles() {
-        return appRoles;
+        return appRole;
     }
 
     public void setAppRoles(Set<AppRole> appRoles) {
-        this.appRoles = appRoles;
+        this.appRole = appRole;
     }
 }
 
