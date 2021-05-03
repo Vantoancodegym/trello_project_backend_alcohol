@@ -5,12 +5,14 @@ import com.example.trello_project_alcohol.repo.TagUser_Board_Repo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class BoardTagAppUserService implements IBoardTagAppUserService{
+public class BoardTagAppUserService implements IBoardTagAppUserService {
     @Autowired
     private TagUser_Board_Repo tagUserBoardRepo;
+
 
     @Override
     public List<TagUser_Board> findAll() {
@@ -26,8 +28,8 @@ public class BoardTagAppUserService implements IBoardTagAppUserService{
     public TagUser_Board save(TagUser_Board tagUser_board) {
         return tagUserBoardRepo.save(tagUser_board);
     }
-
     @Override
     public void delete(Long id) {
     }
+
 }
