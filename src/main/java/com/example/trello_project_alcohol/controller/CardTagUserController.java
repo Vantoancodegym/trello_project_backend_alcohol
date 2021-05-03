@@ -20,7 +20,7 @@ import java.util.List;
 public class CardTagUserController {
     @Autowired
     private IAppUserService appUserService;
-    @GetMapping("card/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<List<AppUser>> findListAppUserByCardId(@PathVariable Long id){
         return new ResponseEntity<>(appUserService.findListAppUserByCardId(id), HttpStatus.OK);
     }
