@@ -8,4 +8,5 @@ import java.util.List;
 public interface ICardService extends IService<Card> {
     List<Card> findCardsByListId(Long id);
     List<Card> findAllCard();
+    List<Card> findCardByLabel(Long label_id);
 }
