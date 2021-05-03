@@ -63,4 +63,9 @@ public class LabelsService implements ILabelsService{
     public void addNewLabelToCard(Card_Labels card_labels) {
         card_labels_repo.save(card_labels);
     }
+
+    @Override
+    public List<Labels> showAllLabel() {
+        return labelsRepo.findAll();
+    }
 }

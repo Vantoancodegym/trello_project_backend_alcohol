@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 @RestController
@@ -45,5 +46,9 @@ public class CardController {
     @GetMapping("")
     public ResponseEntity<?> showAll(){
         return new ResponseEntity<>(cardService.findAllCard(),HttpStatus.OK);
+    }
+    @GetMapping("label/{id}")
+    public ResponseEntity<?> findCardByLabel(@PathVariable Long id){
+        return new ResponseEntity<>(cardService.findCardByLabel(id),HttpStatus.OK);
     }
 }

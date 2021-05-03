@@ -13,5 +13,6 @@ public interface CardRepo extends JpaRepository<Card,Long> {
     void deleteByContent(String content);
     @Query(nativeQuery = true,value = "select * from card")
     List<Card> findAllCard();
-
+    @Query(nativeQuery = true, value = "select * from card join card_labels on card.id = card_labels.card_id where labels_id = ?")
+    List<Card> findCardsByLabel(Long labels_id);
 }
