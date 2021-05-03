@@ -1,7 +1,6 @@
 package com.example.trello_project_alcohol.controller;
 
 import com.example.trello_project_alcohol.model.Notification;
-import com.example.trello_project_alcohol.service.broad.IBoardService;
 import com.example.trello_project_alcohol.service.notificationService.INotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
