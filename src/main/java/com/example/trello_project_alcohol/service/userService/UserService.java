@@ -8,6 +8,7 @@ import com.example.trello_project_alcohol.model.UserPrinciple;
 import com.example.trello_project_alcohol.repo.AppUserRepo;
 import com.example.trello_project_alcohol.repo.Card_tagUser_repo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,6 @@ import java.util.Optional;
 
 @Service
 public class UserService implements IAppUserService {
-    public static AppUser currentUser;
     @Autowired
     private AppUserRepo appUserRepo;
     @Autowired
@@ -85,5 +85,21 @@ public class UserService implements IAppUserService {
             throw new UsernameNotFoundException(username);
         }
         return UserPrinciple.build(userOptional.get());
+    }
+
+    @Override
+    public Optional<AppUser> getUserCurrent() {
+        String name;
+        Object ob = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        if (ob instanceof UserDetails){
+            name = ((UserDetails)ob).getUsername();
+        }
+        else {
+            name = ob.toString();
+        }
+        Optional<AppUser> appUser = this.findByUsername(name);
+
+        return appUser;
     }
 }
