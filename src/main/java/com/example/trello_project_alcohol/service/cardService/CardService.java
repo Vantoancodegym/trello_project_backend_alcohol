@@ -45,7 +45,7 @@ public class CardService implements ICardService{
     }
 
     @Override
-    public List<Card> findCardByLabel(Long label_id) {
-        return cardRepo.findCardsByLabel(label_id);
+    public List<Card> findCardByLabel(Long label_id,Long board_id) {
+        return cardRepo.findCardsByLabel(label_id,board_id);
     }
 }
