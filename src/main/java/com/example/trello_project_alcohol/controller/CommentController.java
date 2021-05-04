@@ -27,5 +27,14 @@ public class CommentController {
     public ResponseEntity<?> createComment (@RequestBody Comment comment){
         return new ResponseEntity<>(commentService.save(comment),HttpStatus.OK);
     }
+    @PutMapping("edit/{id}")
+    public ResponseEntity<?> editComment (@PathVariable Long id,@RequestBody Comment comment ){
+        comment.setId(id);
+        return new ResponseEntity<>(commentService.save(comment),HttpStatus.OK);
+    }
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteComment (@PathVariable Long id){
+        return new ResponseEntity<>(commentService.delete(id),HttpStatus.OK);
+    }
 
 }
