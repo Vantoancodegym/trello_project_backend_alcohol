@@ -27,7 +27,7 @@ public class NotificationController {
     }
     @GetMapping("")
     public ResponseEntity<List<Notification>> findNotificationByUser(){
-        Optional<AppUser> appUser = userService.getUserCurrent();
-        return new ResponseEntity<>(iNotificationService.findNotificationByUser(appUser.get().getId()),HttpStatus.OK);
+        AppUser appUser = userService.getUserCurrent();
+        return new ResponseEntity<>(iNotificationService.findNotificationByUser(appUser.getId()),HttpStatus.OK);
     }
 }
