@@ -2,6 +2,7 @@ package com.example.trello_project_alcohol.controller;
 
 import com.example.trello_project_alcohol.model.Board;
 import com.example.trello_project_alcohol.service.broad.BoardService;
+import com.example.trello_project_alcohol.service.broad.IBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

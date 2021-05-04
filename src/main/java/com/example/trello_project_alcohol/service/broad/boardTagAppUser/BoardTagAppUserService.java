@@ -29,4 +29,5 @@ public class BoardTagAppUserService implements IBoardTagAppUserService{
     @Override
     public void delete(Long id) {
     }
+
 }
