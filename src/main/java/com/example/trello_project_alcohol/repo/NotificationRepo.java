@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface NotificationRepo extends JpaRepository<Notification,Long> {
-    @Query("select n from Notification  as n join notification_app_user on n.id = ")
-    List<Notification> findNotificationByAppUser();
+////    @Query("select n from Notification  as n join notification_app_user on n.id = ")
+//    List<Notification> findNotificationByAppUser();
 }

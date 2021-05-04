@@ -3,7 +3,7 @@ package com.example.trello_project_alcohol.model;
 import javax.persistence.*;
 
 @Entity
-public class NotificaionAppUser {
+public class Notification_appUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -12,7 +12,7 @@ public class NotificaionAppUser {
     @ManyToOne
     private Notification notification;
 
-    public NotificaionAppUser() {
+    public Notification_appUser() {
     }
 
     public Long getId() {
@@ -38,4 +38,5 @@ public class NotificaionAppUser {
     public void setNotification(Notification notification) {
         this.notification = notification;
     }
+
 }
