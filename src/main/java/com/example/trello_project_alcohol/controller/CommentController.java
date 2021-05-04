@@ -1,16 +1,10 @@
 package com.example.trello_project_alcohol.controller;
-
-import com.example.trello_project_alcohol.model.AppUser;
-import com.example.trello_project_alcohol.model.Card;
 import com.example.trello_project_alcohol.model.Comment;
 import com.example.trello_project_alcohol.service.commentService.ICommentService;
-import com.example.trello_project_alcohol.service.userService.IAppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
@@ -36,6 +30,10 @@ public class CommentController {
     public ResponseEntity deleteComment (@PathVariable Long id){
         commentService.delete(id);
         return new ResponseEntity(HttpStatus.OK);
+    }
+    @GetMapping("/card/{id}")
+    public ResponseEntity<?> findAllByCard(@PathVariable Long id){
+        return new ResponseEntity<>(commentService.findAllByCard(id ),HttpStatus.OK);
     }
 
 }

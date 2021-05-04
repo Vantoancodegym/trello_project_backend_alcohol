@@ -8,4 +8,5 @@ import java.util.List;
 public interface ICommentService extends IService<Comment> {
     List<Comment> findCommentsById(Long commentId);
     Iterable<Comment> findCommentByAppUserId (Long userId);
+    List<Comment> findAllByCard(Long cardId);
 }
