@@ -13,4 +13,6 @@ public interface AppUserRepo extends JpaRepository<AppUser,Long> {
     Optional<AppUser> findAppUserByUserName(String username);
     @Query(nativeQuery = true, value = "select * from app_user join card_tag_user ctu on app_user.id = ctu.app_user_id where ctu.card_id = ?")
     List<AppUser> findListAppUserByCardId(Long card_id);
+    @Query(value = "select u from AppUser as u join TagUser_Board as t on u.id= t.appUser.id where t.board.id = ?1")
+    List<AppUser> findAppUserByBoard(Long Board_id);
 }
