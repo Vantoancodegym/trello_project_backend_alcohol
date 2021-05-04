@@ -16,4 +16,5 @@ public interface IAppUserService extends IService<AppUser>, UserDetailsService {
     List<AppUser> findListSelected(Long card_id);
     void addNewAppUserToCard(Card_tagUser cardTagUser);
     AppUser getUserCurrent();
+    List<AppUser> findUserAndTagUserByBoard(Long board_id);
 }

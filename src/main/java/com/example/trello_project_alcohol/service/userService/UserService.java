@@ -102,4 +102,12 @@ public class UserService implements IAppUserService {
 
         return appUser.get();
     }
+
+    @Override
+    public List<AppUser> findUserAndTagUserByBoard(Long board_id) {
+        List<AppUser> appUserList = appUserRepo.findTagUserByBoard(board_id);
+        AppUser user = appUserRepo.findUserByBoard(board_id);
+        appUserList.add(user);
+        return appUserList;
+    }
 }
