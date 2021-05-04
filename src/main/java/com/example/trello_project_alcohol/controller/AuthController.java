@@ -31,20 +31,12 @@ public class AuthController {
     public ResponseEntity<?> login(@RequestBody AppUser user) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(user.getUserName(), user.getPassWord()));
-
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String jwt = jwtService.generateTokenLogin(authentication);
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        UserService.currentUser = userService.findByUsername(user.getUserName()).get();
-        return ResponseEntity.ok(new JwtResponse(jwt, UserService.currentUser.getId(), userDetails.getUsername(), UserService.currentUser.getEmail(), userDetails.getAuthorities()));
-    }
-
-    @GetMapping("/logOut")
-    public ResponseEntity<?> admin() {
-        UserService.currentUser = null;
-        System.out.println("logout");
-        return new ResponseEntity<>(HttpStatus.OK);
+        AppUser currentUser = userService.findByUsername(user.getUserName()).get();
+        return ResponseEntity.ok(new JwtResponse(jwt, currentUser.getId(), userDetails.getUsername(), currentUser.getEmail(), userDetails.getAuthorities(), currentUser.getAvatar()));
     }
 
 }

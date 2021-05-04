@@ -26,8 +26,8 @@ public class BoardTagAppUserService implements IBoardTagAppUserService{
     public TagUser_Board save(TagUser_Board tagUser_board) {
         return tagUserBoardRepo.save(tagUser_board);
     }
-
     @Override
     public void delete(Long id) {
     }
+
 }

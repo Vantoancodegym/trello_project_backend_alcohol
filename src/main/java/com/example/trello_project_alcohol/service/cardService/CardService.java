@@ -10,9 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class CardService implements ICardService{
+public class CardService implements ICardService {
     @Autowired
     private CardRepo cardRepo;
+
     @Override
     public List<Card> findAll() {
         return null;
@@ -40,7 +41,18 @@ public class CardService implements ICardService{
     }
 
     @Override
+
     public List<Card> findCardsByBroadIdAndUserId(Long broadId, Long userId) {
-        return cardRepo.findCardByUserIdAndBroadId(broadId,userId);
+        return cardRepo.findCardByUserIdAndBroadId(broadId, userId);
+    }
+
+    @Override
+    public List<Card> findAllCard() {
+        return cardRepo.findAllCard();
+    }
+
+    @Override
+    public List<Card> findCardByLabel(Long label_id, Long board_id) {
+        return cardRepo.findCardsByLabel(label_id, board_id);
     }
 }
