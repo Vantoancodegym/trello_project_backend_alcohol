@@ -10,14 +10,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/comments")
 public class CommentController {
     @Autowired
     private ICommentService commentService;
-    @Autowired
-    private IAppUserService userService;
 
     @GetMapping("")
     public ResponseEntity<?> showAll(){
@@ -33,8 +33,9 @@ public class CommentController {
         return new ResponseEntity<>(commentService.save(comment),HttpStatus.OK);
     }
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteComment (@PathVariable Long id){
-        return new ResponseEntity<>(commentService.delete(id),HttpStatus.OK);
+    public ResponseEntity deleteComment (@PathVariable Long id){
+        commentService.delete(id);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
 }
