@@ -2,7 +2,6 @@ package com.example.trello_project_alcohol.controller;
 
 import com.example.trello_project_alcohol.model.TagUser_Board;
 import com.example.trello_project_alcohol.service.broad.boardTagAppUser.BoardTagAppUserService;
-import com.example.trello_project_alcohol.service.broad.boardTagAppUser.IBoardTagAppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,10 +11,10 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/tagUser")
+@RequestMapping("/boardAppUser")
 public class BoardTagAppUserController {
     @Autowired
-    private IBoardTagAppUserService boardTagAppUserService;
+    private BoardTagAppUserService boardTagAppUserService;
 
     @GetMapping("")
     public ResponseEntity <List<TagUser_Board>> showAll(){
