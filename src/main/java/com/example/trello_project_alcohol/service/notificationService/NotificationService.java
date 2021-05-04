@@ -31,7 +31,6 @@ public class NotificationService implements INotificationService{
     public void delete(Long id) {
 
     }
-
     @Override
     public List<Notification> findNotificationByUser(Long id) {
         return notificationRepo.findNotificationByAppUserQ(id);
