@@ -29,4 +29,8 @@ public class LabelController {
         labelsService.addNewLabelToCard(card_labels);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+    @GetMapping()
+    public ResponseEntity<?> findAll(){
+        return new ResponseEntity<>(labelsService.showAllLabel(),HttpStatus.OK);
+    }
 }

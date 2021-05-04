@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/board")
 public class BoardController {
     @Autowired
-    private BoardService boardService;
+    private IBoardService boardService;
 
     @GetMapping("")
     public ResponseEntity<List<Board>> showAll() {
