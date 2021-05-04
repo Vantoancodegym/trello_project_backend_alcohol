@@ -42,6 +42,12 @@ public class CardController {
         card.setPosition(position);
         return new ResponseEntity<>(cardService.save(card), HttpStatus.OK);
     }
+
+    @GetMapping("/search/{id}")
+        public ResponseEntity<?> searchCardByUser (@PathVariable Long id,@RequestParam Long userId){
+        return new ResponseEntity<>(cardService.findCardsByBroadIdAndUserId(id, userId),HttpStatus.OK);
+    }
+
 }
 
 
