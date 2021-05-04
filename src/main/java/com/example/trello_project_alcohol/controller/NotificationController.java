@@ -16,21 +16,24 @@ import java.util.Optional;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/notification")
 public class NotificationController {
     @Autowired
     private INotificationService iNotificationService;
     @Autowired
     private IAppUserService userService;
 
-    @MessageMapping("/")
-    @SendTo("/topic/")
+    @MessageMapping("/notice")
+    @SendTo("/topic/notice")
     public ResponseEntity<Notification> create(@RequestBody Notification notification){
         return new ResponseEntity<>(iNotificationService.save(notification), HttpStatus.OK);
     }
-    @GetMapping("")
+    @GetMapping("notification")
     public ResponseEntity<List<Notification>> findNotificationByUser(){
         AppUser appUser = userService.getUserCurrent();
         return new ResponseEntity<>(iNotificationService.findNotificationByUser(appUser.getId()),HttpStatus.OK);
+    }
+    @GetMapping("notification/users/{id}")
+    public ResponseEntity<List<AppUser>> findUserByBoard(@PathVariable Long id){
+        return new ResponseEntity<>(userService.findUserAndTagUserByBoard(id),HttpStatus.OK);
     }
 }
