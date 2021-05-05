@@ -1,6 +1,7 @@
 package com.example.trello_project_alcohol.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
