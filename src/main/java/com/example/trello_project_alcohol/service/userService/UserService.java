@@ -88,7 +88,7 @@ public class UserService implements IAppUserService {
     }
 
     @Override
-    public Optional<AppUser> getUserCurrent() {
+    public AppUser getUserCurrent() {
         String name;
         Object ob = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -100,6 +100,14 @@ public class UserService implements IAppUserService {
         }
         Optional<AppUser> appUser = this.findByUsername(name);
 
-        return appUser;
+        return appUser.get();
+    }
+
+    @Override
+    public List<AppUser> findUserAndTagUserByBoard(Long board_id) {
+        List<AppUser> appUserList = appUserRepo.findTagUserByBoard(board_id);
+        AppUser user = appUserRepo.findUserByBoard(board_id);
+        appUserList.add(user);
+        return appUserList;
     }
 }
