@@ -1,11 +1,9 @@
 package com.example.trello_project_alcohol.service.userService;
 
 
-import com.example.trello_project_alcohol.model.AppUser;
-import com.example.trello_project_alcohol.model.Card_tagUser;
-import com.example.trello_project_alcohol.model.Labels;
-import com.example.trello_project_alcohol.model.UserPrinciple;
+import com.example.trello_project_alcohol.model.*;
 import com.example.trello_project_alcohol.repo.AppUserRepo;
+import com.example.trello_project_alcohol.repo.CardRepo;
 import com.example.trello_project_alcohol.repo.Card_tagUser_repo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,6 +21,8 @@ public class UserService implements IAppUserService {
     private AppUserRepo appUserRepo;
     @Autowired
     private Card_tagUser_repo card_tagUser_repo;
+    @Autowired
+    private CardRepo cardRepo;
 
     @Override
     public List<AppUser> findAll() {
@@ -57,8 +57,9 @@ public class UserService implements IAppUserService {
 
     @Override
     public List<AppUser> findListSelected(Long card_id) {
+        Card card = cardRepo.findById(card_id).get();
         List<AppUser> appUserList = new ArrayList<>();
-        List<AppUser> allAppUser = this.findAll();
+        List<AppUser> allAppUser = this.findUserAndTagUserByBoard(card.getList().getBoard().getId());
         List<AppUser> cardAppUses = this.findListAppUserByCardId(card_id);
         for (AppUser appUser:allAppUser) {
             if (!checkListContainItem(appUser,cardAppUses)) appUserList.add(appUser);
