@@ -13,4 +13,9 @@ public class CardTagUserService implements ICardTagUserService{
     public Card_tagUser create(Card_tagUser card_tagUser) {
         return card_tagUser_repo.save(card_tagUser);
     }
+
+    @Override
+    public void delete(Long id) {
+        card_tagUser_repo.deleteById(id);
+    }
 }
