@@ -25,6 +25,8 @@ public class AppUser {
     private String email;
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<AppRole> appRole;
+    @Transient
+    private String oldPassWord;
 
 
     public AppUser() {
@@ -84,6 +86,14 @@ public class AppUser {
 
     public void setAppRoles(Set<AppRole> appRoles) {
         this.appRole = appRole;
+    }
+
+    public String getOldPassWord() {
+        return oldPassWord;
+    }
+
+    public void setOldPassWord(String oldPassWord) {
+        this.oldPassWord = oldPassWord;
     }
 }
 
