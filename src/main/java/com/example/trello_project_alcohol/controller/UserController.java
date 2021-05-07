@@ -1,5 +1,6 @@
 package com.example.trello_project_alcohol.controller;
 
+import com.example.trello_project_alcohol.exception.PasswordNotCorrectException;
 import com.example.trello_project_alcohol.model.AppUser;
 import com.example.trello_project_alcohol.service.userService.IAppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,10 @@ public class UserController {
     public ResponseEntity<List<AppUser>> showAll() {
         return new ResponseEntity<>(iAppUserService.findAll(), HttpStatus.OK);
     }
+//    @ExceptionHandler(PasswordNotCorrectException.class)
+//    public ResponseEntity<?> showPasswordNotCorrect(){
+//        return new ResponseEntity<>("Pass word incorrect", HttpStatus.NO_CONTENT);
+//    }
 
     @PostMapping("/create")
     public ResponseEntity<AppUser> createUser(@RequestBody AppUser appUser) {
@@ -28,8 +33,10 @@ public class UserController {
     }
 
     @PutMapping("/edit/{id}")
-    public ResponseEntity<AppUser> editPass(@PathVariable Long id, @RequestBody AppUser appUser) {
+    public ResponseEntity<AppUser> editPass(@PathVariable Long id, @RequestBody AppUser appUser) throws PasswordNotCorrectException {
+        if (!appUser.getOldPassWord().equals(appUser.getPassWord())) throw new PasswordNotCorrectException();
         appUser.setId(id);
+        appUser.setPassWord(appUser.getNewPassWord());
         return new ResponseEntity<>(iAppUserService.save(appUser), HttpStatus.OK);
     }
 
