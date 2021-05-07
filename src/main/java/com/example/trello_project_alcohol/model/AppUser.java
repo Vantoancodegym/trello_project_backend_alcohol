@@ -27,8 +27,8 @@ public class AppUser {
     private Set<AppRole> appRole;
     @Transient
     private String oldPassWord;
-
-
+    @Transient
+    private String newPassWord;
     public AppUser() {
     }
 
