@@ -22,6 +22,10 @@ public class UserController {
     public ResponseEntity<List<AppUser>> showAll() {
         return new ResponseEntity<>(iAppUserService.findAll(), HttpStatus.OK);
     }
+    @ExceptionHandler(PasswordNotCorrectException.class)
+    public ResponseEntity<?> showPasswordNotCorrect(){
+        return new ResponseEntity<>("Pass word incorrect", HttpStatus.NO_CONTENT);
+    }
 
     @PostMapping("/create")
     public ResponseEntity<AppUser> createUser(@RequestBody AppUser appUser) {
@@ -30,7 +34,7 @@ public class UserController {
 
     @PutMapping("/edit/{id}")
     public ResponseEntity<AppUser> editPass(@PathVariable Long id, @RequestBody AppUser appUser) throws PasswordNotCorrectException {
-        if (appUser.getOldPassWord()!=appUser.getPassWord())
+        if (appUser.getOldPassWord()!=appUser.getPassWord()) throw new PasswordNotCorrectException();
         appUser.setId(id);
         return new ResponseEntity<>(iAppUserService.save(appUser), HttpStatus.OK);
     }
