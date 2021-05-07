@@ -95,5 +95,13 @@ public class AppUser {
     public void setOldPassWord(String oldPassWord) {
         this.oldPassWord = oldPassWord;
     }
+
+    public String getNewPassWord() {
+        return newPassWord;
+    }
+
+    public void setNewPassWord(String newPassWord) {
+        this.newPassWord = newPassWord;
+    }
 }
 
