@@ -36,4 +36,10 @@ public class NotificationController {
     public ResponseEntity<List<AppUser>> findUserByBoard(@PathVariable Long id){
         return new ResponseEntity<>(userService.findUserAndTagUserByBoard(id),HttpStatus.OK);
     }
+    @DeleteMapping("notification")
+    public ResponseEntity<?> deleteNotificationByUser(){
+        AppUser appUser = userService.getUserCurrent();
+        iNotificationService.deleteNotification_appUsersByAppUser_Id(appUser.getId());
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
