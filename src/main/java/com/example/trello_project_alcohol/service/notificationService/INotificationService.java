@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface INotificationService extends IService<Notification> {
     List<Notification> findNotificationByUser(Long id);
+    void  deleteNotification_appUsersByAppUser_Id(Long id);
 }
