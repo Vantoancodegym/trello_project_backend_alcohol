@@ -1,1 +1,1 @@
-web: java -jar build/libs/trello_project_backend-0.0.1-SNAPSHOT.jar
+web: java -jar trello_project_backend-0.0.1-SNAPSHOT.jar
