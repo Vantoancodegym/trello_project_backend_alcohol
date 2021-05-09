@@ -1,1 +1,0 @@
-web: java -jar trello_project_backend_alcohol-0.0.1-SNAPSHOT.jar
